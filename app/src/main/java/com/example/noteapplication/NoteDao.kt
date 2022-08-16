@@ -9,11 +9,12 @@ interface NoteDao {
     suspend fun insert(note: Note)
 
     @Update
-    suspend fun update()
+    suspend fun update(note: Note)
 
     @Delete
-    suspend fun delete()
+    suspend fun delete(note: Note)
+
     @Query("select * from noteTable order by id ASC")
-    fun getAllNote():LiveData<List<Note>>
+    fun getAllNotes():LiveData<List<Note>>
 
 }
