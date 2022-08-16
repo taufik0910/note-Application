@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
-interface NoteDao {
+interface NotesDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(note: Note)
 
@@ -15,6 +15,6 @@ interface NoteDao {
     suspend fun delete(note: Note)
 
     @Query("select * from noteTable order by id ASC")
-    fun getAllNotes():LiveData<List<Note>>
+    fun getAllNotes(): LiveData<List<Note>>
 
 }
